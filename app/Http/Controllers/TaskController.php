@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTaskRequest;
 use App\Models\Task;
-use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -17,15 +17,10 @@ class TaskController extends Controller
         return view('task.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateTaskRequest $request)
     {
-        $task = Task::create([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'created_at' => $request->input('created_at'),
-            'slug' => $request->input('title')
-        ]);
+        $task = Task::create($request->validated());
 
-        return redirect()->route('task.index')->with('success', "Task created");
+        return redirect()->route('index')->with('success', "Task created");
     }
 }
