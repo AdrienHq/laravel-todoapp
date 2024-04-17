@@ -1,9 +1,9 @@
-@extends('base')
+{{--@extends('base')--}}
 
-@section('title', 'Create Task')
+{{--@section('title', 'Create Task')--}}
 
-@section('content')
-    <h1>New task</h1>
+{{--@section('create')--}}
+    <h4 class="text-primary">New task</h4>
     <div>
         <form method="post" action="/create">
             @csrf
@@ -26,4 +26,4 @@
             </div>
         </form>
     </div>
-@endsection
+{{--@endsection--}}

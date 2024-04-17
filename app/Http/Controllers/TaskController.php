@@ -9,12 +9,21 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return view('task.index');
+        $tasks = Task::all();
+
+
+        return view('task.index',[
+            'tasks' => $tasks
+        ]);
     }
 
     public function create()
     {
-        return view('task.create');
+        $task = new Task();
+
+        return view('task.create', [
+            'task' => $task
+        ]);
     }
 
     public function store(CreateTaskRequest $request)
