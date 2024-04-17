@@ -22,9 +22,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('task.create') }}">Create</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Edit</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('task.edit') }}">Edit</a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
