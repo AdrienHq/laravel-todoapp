@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTaskRequest;
 use App\Models\Task;
+use Carbon\Carbon;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::paginate(8);
+
+        $todayTasks = Task::whereDate('created_at', today())->get();
 
 
         return view('task.index',[
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'todayTasks' => $todayTasks
         ]);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateTaskRequest extends FormRequest
@@ -17,20 +18,23 @@ class CreateTaskRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
             'title' => ['required', 'min:8'],
+            'description' => ['nullable', 'min:1'],
         ];
     }
 
-    protected function prepareForValidation()
+    protected function prepareForValidation(): void
     {
         $this->merge([
             'description' => $this->input('description') ?: "",
+            'created_at' => $this->input('created_at') ?: now(),
             'slug' => $this->input('slug') ?: $this->input('title')
         ]);
     }
+
 }
