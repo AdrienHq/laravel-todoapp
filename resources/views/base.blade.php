@@ -12,6 +12,13 @@
 
 <body>
 <div class="container">
+    <div class="d-flex justify-content-center">
+        <nav class="navbar navbar-dark bg-primary justify-content-center mt-5"
+             style="width: 200px; height: 75px; border-radius: 35px">
+            <a class="navbar-brand" href="{{ route('index') }}">Today</a>
+            <a class="navbar-brand" href="{{ route('all') }}">All</a>
+        </nav>
+    </div>
     @yield('content')
 </div>
 </body>
