@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTaskRequest;
 use App\Models\Task;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class TaskController extends Controller
